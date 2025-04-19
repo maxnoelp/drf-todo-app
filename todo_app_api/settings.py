@@ -26,7 +26,10 @@ DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = [
+    host.strip() for host in os.getenv("ALLOWED_HOSTS", "").split(",") if host.strip()
+]
+print("💬 Render sees ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
