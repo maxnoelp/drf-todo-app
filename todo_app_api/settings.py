@@ -165,3 +165,7 @@ AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "eu-central-1")  # z. B. 
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
